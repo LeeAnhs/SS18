@@ -9,12 +9,11 @@ int main () {
   struct sinhvien SV01;
  
   printf("Name:");
-  scanf("%s",&SV01.name);
+  fgets(SV01.name, sizeof(SV01.name), stdin);
   printf("Age:");
   scanf("%d",&SV01.age);
   printf("SDT:");
   scanf("%s",&SV01.phoneNumber);
-  
   printf("Name: %s\n", SV01.name);
   printf("Age: %d\n", SV01.age);
   printf("SDT: %s\n", SV01.phoneNumber);
