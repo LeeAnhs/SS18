@@ -9,7 +9,7 @@ int main () {
   struct sinhvien SV01={"LeXuanAnh",18,329325058};
   printf("Name: %s\n", SV01.name);
   printf("Age: %d\n", SV01.age);
-  printf("ID: %ld\n", SV01.phoneNumber);
+  printf("SDT: %d\n", SV01.phoneNumber);
   return 0;
   
 }
