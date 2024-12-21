@@ -14,6 +14,8 @@ int main(){
         {4,"Com", 30},
         {5,"Vit",25},
     };
+    int pos;
+    int dish=0;
     int luachon;
     int size= 5;
     do{
@@ -51,29 +53,26 @@ int main(){
 
             break;
         case 3:
-                int changeID;
-                printf("nhap vao id muon sua: ");
-                scanf("%d",&changeID);
-                getchar();
-                if(changeID>size-1||changeID<0){
-                    printf("khong ton tai id do\n");
-                    break;
-                }
-                for(int i=0;i<size;i++){
-                        if(changeID==menu[i].id){
-                                printf("nhap vao mon sua: ");
-                                fgets(menu[i].name,sizeof(menu[i].name),stdin);
-                                menu[i].name[strlen(menu[i].name)-1];
-                                printf("nhap vao gia tien muon sua: ");
-                                scanf("%lf",&menu[i].price);
-                                getchar();
-			}
-		}
-                printf("Menu sau khi thay doi la: \n");
-                for(int i=0;i<size;i++){
-                	printf("%d. %s: %lf\n",menu[i].id,menu[i].name,menu[i].price);
-                }
-	        break;
+            do {
+                printf("Nhap vi tri can sua (1-%d): ", size);
+                scanf("%d", &pos);
+                getchar(); 
+                if (pos < 1 || pos > size) {
+                    printf("Vi tri khong hop le, vui long nhap lai.\n");
+                    }
+                    } while (pos < 1 || pos > size);
+                    pos--; 
+                printf("Nhap ten mon muon sua: ");
+                fgets(menu[pos].name, sizeof(menu[pos].name), stdin);
+                menu[pos].name[strcspn(menu[pos].name, "\n")] = 0; 
+                printf("Nhap gia tien moi: ");
+                scanf("%lf", &menu[pos].price);
+                getchar(); 
+                printf("Mon an sau khi sua:\n");
+                for (int i = 0; i < size; i++) {
+                     printf("%d. %s: %.2lf\n", menu[i].id, menu[i].name, menu[i].price);
+                    }
+    break;
         case 4:
             size--;
             for (int i=0;i<size;i++){ 
